@@ -1,0 +1,19 @@
+{% layout "layout.liquid" %}
+{% block content %}
+
+<div>
+
+ <form action="/party/{{char._id}}?_method=PUT" method="post">
+  <fieldset>
+    <legend>Edit {{char.name}}</legend>
+        <label>
+            Name: <input type="text" name="name" placeholder="enter character name" value="{{char.name}}"/>
+        </label>
+    </fieldset>
+    <input type="submit" value="update {{char.name}}"/>
+ </form>
+
+</div>
+
+
+{% endblock %}

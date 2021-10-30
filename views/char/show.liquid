@@ -1,0 +1,17 @@
+{% layout "layout.liquid" %}
+{% block content %}
+
+<article>
+
+    <h2>{{char.name}}</h2>
+    <h3>{{fruit.color}}</h3>
+    <a href="/party/{{char._id}}/edit"><button>EDIT</button></a>
+    <form action="/fruits/{{char._id}}?_method=DELETE" method="post">
+    <input type="submit" value="DELETE">
+    </form>
+    <a href="/party"><button>Back</button></a>
+
+</article>
+
+
+{% endblock %}

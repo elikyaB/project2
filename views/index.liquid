@@ -1,0 +1,22 @@
+{% layout "layout.liquid" %} 
+{% block content %}
+<div>
+  <button id="play">Play</button>
+  <a href="/user/signup"><button class="hide">Signup</button></a>
+  <a href="/user/login"><button class="hide">Login</button></a>
+  {% if logCheck == true %}
+    <script>
+      $('#play').on('click', (event) => {
+        window.location.href = '/party'
+      })
+    </script>
+  {% else %}
+    <script>
+      $('#play').on('click', (event) => {
+        $('.hide').removeClass('hide')
+        $('#play').addClass('hide')
+      })
+    </script>
+  {% endif %}
+</div>
+{% endblock %}

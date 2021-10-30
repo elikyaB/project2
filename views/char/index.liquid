@@ -1,0 +1,14 @@
+{% layout "layout.liquid" %}
+{% block content %}
+
+<div>
+    <a href="/user/logout"><button>Logout</button></a>
+    <a href="/party/new"><button>Create a New Character</button></a>
+    {% for char in party %}
+        <article>
+            <a href="/party/{{char._id}}">{{char.name}}</a>
+        </article>
+    {% endfor %}
+</div>
+
+{% endblock %}
