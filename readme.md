@@ -44,6 +44,7 @@ _ two users should be able to log in, authenticate, and play against each other.
 
 ## Challenges
 - CSS Framework Issues - Bootstrap never wanted to animate a carousel, so I had to build it from scratch. Materialize was better in that regard but it stopped me from using select to narrow down the list of inputs in the stats section after the dice rolls.
+- Styling input fields - they have default behavior that I didn't figure out how to override, 
 
 ## List of Technologies
 - HTML / CSS / JS
