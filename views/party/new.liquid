@@ -10,7 +10,7 @@
 <form action="/party" method="post" id='creation'>
 
     <div class='cntr heading'>Name</div>
-    <input type="text" name="name" placeholder="enter character name"/>
+    <input type="text" class='white' name="name" placeholder="enter character name"/>
     <div class='cntr heading'>
         Appearance <input type="url" name="img" class='hide' id="appearance"/>
     </div>
@@ -39,7 +39,7 @@
         $('#appearance').val($url)
     </script>
     <div id='stats'>
-        <div class="cntr" id="statBtn"><button>Roll Dice</button></div>
+        <div class="cntr white" id="statBtn"><button>Roll Dice</button></div>
         <div class="primary-rolls">
             {% for i in (1..4) %}
                 <div class = "scene">
@@ -54,8 +54,8 @@
                 </div>
             {% endfor %}
         </div>
-        <div class='hide' id="results"></div>
-        <div class='hide' id="scores">
+        <div class='hide white' id="results"></div>
+        <div class='hide white' id="scores">
             {%- comment -%} Figure out how to use select or remove materialize{%- endcomment -%}
             <div>STR<br><input type='number' name="str" required></div>
             <div>CON<br><input type='number' name="con" required></div>

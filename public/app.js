@@ -60,6 +60,7 @@ $('#statBtn').on("click", () => {
     if ($('.result').length == 5) {
         $('#statBtn').off().text('Assign Stats')
         .on('click', () => {
+            $('#statBtn').addClass('violet')
             $('.primary-rolls').addClass('hide')
             $('#results').removeClass('hide')
             $('#scores').removeClass('hide') 
