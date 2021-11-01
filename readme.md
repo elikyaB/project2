@@ -7,31 +7,13 @@ Turn-Based-Tactics Game App
 
 ## Models
 
-Model: Party
-* members: Array of Characters
-* inventory: {id: Item, equipped: bool}
-* gold: Number
-
 Model: Character
 
-* user: String
+* username: String
 * name: String
-* primaries: Object {initial: function, str: Number, end: Number, dex: Number, int: number}
-* secondaries: {}
-* equipment: {left: Item || null, right: Item || null}
-* location: [x, y, z]
-
-Model: Item
-* rangeMod: Number
-* staminaDrain: Number
-* price: Number
-* two_handed: Boolean
-
-Model: Map
-* Array of {location: {vacant: bool, char: String}}
-
-Model: Actions
-* 
+* img: String
+* stats: Object {str: Number, con: Number, dex: Number, int: number, cha: Number}
+* equipment: {equipment: {head: String, torso: String, rArm: String, lArm: String, legs: String, misc: String}}
 
 [//]: # (is this a comment)
 
@@ -41,26 +23,32 @@ List your routes in a table
 
 | url | method | action |
 |-----|--------|--------|
-| /char | get | get all characters (index)|
-| /char/new | get | new character form (new)|
-| /char | post | post | add new character to party (create)|
-| /char/:id | get | get a particular character (show)|
-| /char/:id/edit | get | edit that character's info item management (edit)|
-| /char/:id | put | update particular char|
-| /char/:id | delete | removes a character|
-| /shop | get | see all items for sale (index)|
-| /shop/:id | get | see a particular item |
-| /shop/ | post | buy a specific item |
-| /play | get | show map and match |
+| /party | get | get all characters (index)|
+| /party/new | get | new character form (new)|
+| /party | post | post | add new character to party (create)|
+| /party/:id | get | view a particular character (show)|
+| /party/:id/edit | get | edit that character's equipment(edit)|
+| /party/:id | put | update particular char|
+| /party/:id | delete | removes a character|
+
 
 ## User Stories
+- The user should click play and either go straight to the main screen or be prompted for authentication.
+- The user should be able to see all characters on index.
 - The user should be able to click on a button to create a character by following a form.
+- The user should be able to use a carousel to select images for the character, and roll dice to generate values to assign to stats.
 - the user should be able to delete the character at will
 - the user should be able to shop for equipment
 - the user should be able to toggle whether or not an item is equipped
 _ two users should be able to log in, authenticate, and play against each other.
 
 ## Challenges
-
+- CSS Framework Issues - Bootstrap never wanted to animate a carousel, so I had to build it from scratch. Materialize was better in that regard but it stopped me from using select to narrow down the list of inputs in the stats section after the dice rolls.
 
 ## List of Technologies
+- HTML / CSS / JS
+- jQuery
+- Liquid
+- Materialize CSS & JS
+- MongoDB
+- [3D Dice CSS JS by Christopher Godber](https://codepen.io/noirvortex/pen/MWjyeQg)

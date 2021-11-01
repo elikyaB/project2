@@ -1,16 +1,17 @@
 {% layout "layout.liquid" %}
 {% block content %}
+<h1 class='heading'>RPG PARTY</h1>
 <div>
 <form action="/user/login" method="post">
 <fieldset>
-<legend>Login</legend>
+<legend class='heading'>Login</legend>
 <label>
     Username: <input type="text" name="username" required/> 
 </label>
 <label>
     Password: <input type="password" name="password" required/>
 </label>
-<input type="submit" value="Login"/>
+<div class="cntr"><input type="submit" class='violet' value="Login"/></div>
 </fieldset>
 
 </form>

@@ -31,7 +31,7 @@ router.use((req, res, next) => {
 
 /// INDEX
 router.get('/', (req, res) => {
-    Character.find() // {username: req.session.username}
+    Character.find({username: req.session.username})
     .then((party) => {
         res.render('party/index.liquid', {party})
     })
@@ -51,9 +51,18 @@ router.get('/new', (req, res) => {
 router.post('/', (req, res) => {
     // Add non-user generated info
     req.body.username = req.session.username
+    req.body.stats = {
+        str: req.body.str,
+        con: req.body.con,
+        dex: req.body.dex,
+        int: req.body.int,
+        cha: req.body.cha,
+    }
+    console.log(req.body)
 
     Character.create(req.body)
     .then((char) => {
+        console.log(char)
         res.redirect('/party')
     })
     .catch((error) => {
@@ -76,8 +85,17 @@ router.get('/:id/edit', (req, res) => {
 /// UPDATE
 router.put('/:id', (req, res) => {
     const id = req.params.id
+    req.body.equipment = {
+        head: req.body.head,
+        torso: req.body.torso,
+        rArm: req.body.rArm,
+        lArm: req.body.lArm,
+        legs: req.body.legs,
+        misc: req.body.misc
+    }
     Character.findByIdAndUpdate(id, req.body, {new: true})
     .then((char) => {
+        console.log(char)
         res.redirect(`/party/${id}`)
     })
     .catch((error) => {

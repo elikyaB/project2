@@ -1,16 +1,26 @@
 {% layout "layout.liquid" %}
 {% block content %}
-
+<nav class="row black">
+    <a href="/party"><button class='col s3'>PARTY</button></a>
+    <a href="#"><button class='col s6'>Coming Soon</button></a>
+    <a href="/user/logout"><button class='col s3'>LOGOUT</button></a>
+</nav>
 <div>
 
  <form action="/party/{{char._id}}?_method=PUT" method="post">
   <fieldset>
-    <legend>Edit {{char.name}}</legend>
+    <legend class='heading'>Equip {{char.name}}</legend>
         <label>
-            Name: <input type="text" name="name" placeholder="enter character name" value="{{char.name}}"/>
+            Equipment: 
+            <input type="text" name="head" placeholder="Headgear" value="{{char.equipment.head}}"/>
+            <input type="text" name="torso" placeholder="Upper Armor" value="{{char.equipment.torso}}"/>
+            <input type="text" name="rArm" placeholder="Right Arm" value="{{char.equipment.rArm}}"/>
+            <input type="text" name="lArm" placeholder="Left Arm" value="{{char.equipment.lArm}}"/>
+            <input type="text" name="legs" placeholder="Lower Armor" value="{{char.equipment.legs}}"/>
+            <input type="text" name="misc" placeholder="Accessories" value="{{char.equipment.misc}}"/>
         </label>
     </fieldset>
-    <input type="submit" value="update {{char.name}}"/>
+    <div class='cntr'><input type="submit" class='violet' value="UPDATE"/></div>
  </form>
 
 </div>

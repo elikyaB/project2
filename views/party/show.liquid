@@ -1,16 +1,37 @@
 {% layout "layout.liquid" %}
 {% block content %}
+<nav class="row black">
+    <a href="/party"><button class='col s3'>PARTY</button></a>
+    <a href="#"><button class='col s6'>Coming Soon</button></a>
+    <a href="/user/logout"><button class='col s3'>LOGOUT</button></a>
+</nav>
+<div>
+    <div class="row" id='options'>
+        <a href="/party/{{char._id}}/edit"><button class='col s6'>EQUIP</button></a>
+        <form action="/party/{{char._id}}?_method=DELETE" method="post">
+            <input type="submit" class='col s6 violet' value="DISMISS">
+        </form>
+    </div>
+    <h3 class='heading'>{{char.name}}</h3>
+    <div class='cntr'><div class='carousel-image' style="background-image: url({{char.img}})"></div></div>
+    <div class='white' id="scores">
+        <div>STR<br>{{char.stats.str}}</div>
+        <div>CON<br>{{char.stats.con}}</div>
+        <div>DEX<br>{{char.stats.dex}}</div>
+        <div>INT<br>{{char.stats.int}}</div>
+        <div>CHA<br>{{char.stats.cha}}</div>
+    </div>
+    <div class="equipment white">
+        <div>Head: {{char.equipment.head}}</div>
+        <div>Torso: {{char.equipment.torso}}</div>
+        <div>R Arm: {{char.equipment.rArm}}</div>
+        <div>L Arm: {{char.equipment.lArm}}</div>
+        <div>Legs: {{char.equipment.legs}}</div>
+        <div>Misc: {{char.equipment.misc}}</div>
+    </div>
+    
 
-<article>
-
-    <h2>{{char.name}}</h2>
-    <a href="/party/{{char._id}}/edit"><button>EDIT</button></a>
-    <form action="/party/{{char._id}}?_method=DELETE" method="post">
-        <input type="submit" value="DELETE">
-    </form>
-    <a href="/party"><button>Back</button></a>
-
-</article>
+</div>
 
 
 {% endblock %}

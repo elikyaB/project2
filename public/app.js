@@ -13,6 +13,7 @@ $('.next').on('click', () => {
     let $url = $nextPage.attr('style')
     $url = $url.slice($url.indexOf('(')+1, $url.indexOf(')'))
     $('#appearance').val($url)
+    console.log($('#appearance').val())
 
 })
 
@@ -26,4 +27,44 @@ $('.previous').on('click', () => {
     let $url = $previousPage.attr('style')
     $url = $url.slice($url.indexOf('(')+1, $url.indexOf(')'))
     $('#appearance').val($url)
+    console.log($('#appearance').val())
 })
+
+// STATS
+const rollNumGen = (n) => {return Math.ceil(Math.random()*n)}
+
+const rollD = (n, dx) => {
+    const $die = $(`.${dx}`)
+    const roll = rollNumGen(n)
+    const showClass = `show-${roll}`
+    for (let i=1; i<=n; i++) {
+        if ($die.hasClass(`show-${i}`)) {$die.removeClass(`show-${i}`)}
+    }
+    $die.addClass(showClass)
+    return roll
+}
+
+const stats = []
+$('#statBtn').on("click", () => {
+    const results = []
+    for (let i = 1; i <= $('.cube').length; i++) {
+        results.push(rollD(6, `d${i}`))
+    }
+    const reducer = (n1, n2) => n1 + n2
+    const best3of4 = results.sort().slice(1).reduce(reducer)
+    // add way to prevent rerolls later
+    $('<div>').addClass('result').text(best3of4).appendTo($('#results'))
+    stats.push(best3of4)
+
+    // On final click
+    if ($('.result').length == 5) {
+        $('#statBtn').off().text('Assign Stats')
+        .on('click', () => {
+            $('.primary-rolls').addClass('hide')
+            $('#results').removeClass('hide')
+            $('#scores').removeClass('hide') 
+        })
+    }
+})
+
+

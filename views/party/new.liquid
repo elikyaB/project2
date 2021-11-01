@@ -1,15 +1,19 @@
 {% layout "layout.liquid" %}
 {% block content %}
 
+<nav class="row black">
+    <a href="/party"><button class='col s3'>PARTY</button></a>
+    <a href="#"><button class='col s6'>Coming Soon</button></a>
+    <a href="/user/logout"><button class='col s3'>LOGOUT</button></a>
+</nav>
 
-<form action="/party" method="post">
+<form action="/party" method="post" id='creation'>
 
-    <label>
-        Name <input type="text" name="name" placeholder="enter character name"/>
-    </label>
-    <label>
+    <div class='cntr heading'>Name</div>
+    <input type="text" name="name" placeholder="enter character name"/>
+    <div class='cntr heading'>
         Appearance <input type="url" name="img" class='hide' id="appearance"/>
-    </label>
+    </div>
     <div class="carousel-container row">
         <div class="carousel-button previous col s1">
             <i class="material-icons">chevron_left</i>
@@ -29,9 +33,38 @@
             <i class="material-icons">chevron_right</i>
         </div>
     </div>
-    <label>
-        Appearance <input type="url" name="img" class='hide' id="appearance"/>
-    </label>
+    <script>
+        let $url = $('.carousel-character').children().eq(0).attr('style')
+        $url = $url.slice($url.indexOf('(')+1, $url.indexOf(')'))
+        $('#appearance').val($url)
+    </script>
+    <div id='stats'>
+        <div class="cntr" id="statBtn"><button>Roll Dice</button></div>
+        <div class="primary-rolls">
+            {% for i in (1..4) %}
+                <div class = "scene">
+                    <div class="cube d{{i}} show-1">
+                        <div class="cube__face cube__face--1">1</div>
+                        <div class="cube__face cube__face--2">2</div>
+                        <div class="cube__face cube__face--3">3</div>
+                        <div class="cube__face cube__face--4">4</div>
+                        <div class="cube__face cube__face--5">5</div>
+                        <div class="cube__face cube__face--6">6</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class='hide' id="results"></div>
+        <div class='hide' id="scores">
+            {%- comment -%} Figure out how to use select or remove materialize{%- endcomment -%}
+            <div>STR<br><input type='number' name="str" required></div>
+            <div>CON<br><input type='number' name="con" required></div>
+            <div>DEX<br><input type='number' name="dex" required></div>
+            <div>INT<br><input type='number' name="int" required></div>
+            <div>CHA<br><input type='number' name="cha" required></div>
+        </div>
+    </div>
+    <div class='cntr' id="confirm"><input type="submit" class='violet' value="Confirm"></div>
 </form>
 
 {% endblock %}

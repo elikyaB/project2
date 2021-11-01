@@ -1,10 +1,66 @@
+/* ============== GENERAL ============== */
 * {
-    outline: 1px solid violet;
+    /* outline: 1px solid violet; */
+}
+
+button {background-color: violet;}
+.heading {background-color: lightcoral}
+legend {padding: 5px}
+nav.row {margin-bottom: 0px;}
+.violet {background-color: violet;}
+h1 {font-size: 4em; text-align: center;}
+#play, #signup, #login {margin-top: 10vh;}
+.auth {flex-direction: column;
+    align-items: center;
 }
 
 .hide {
     display: none;
 }
+
+/* ============== INDEX ============== */
+
+.preview {
+    display: flex;
+    flex-direction: column;
+    background-color: #d8d8d8;
+    width: 20vw;
+    height: 20vw;
+    background-size: 15vh 15vh;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 2vh;
+    box-shadow: 1vw 1vh #787878;
+    border: 1px solid black;
+}
+
+.summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: 2px groove violet;
+}
+
+.sumStats {
+    justify-content: space-between;
+    text-align: center;
+}
+
+.indexStat{
+    font-size: 4vw;
+    padding: 2px;
+}
+
+a h4 {
+    color: black;
+}
+
+/* ============== SHOW ============== */
+h3 {margin: 0 auto; text-align: center;}
+
 
 /* ============== CAROUSEL ============== */
 .carousel-container {
@@ -16,6 +72,7 @@
     display: flex;
     align-self: center;
     justify-content: center;
+    background-color: violet;
 }
 
 .carousel-button:hover {
@@ -40,4 +97,88 @@ i.material-icons {
     background-position: center;    
 }
 
-/* ===== */
+/* ============== D6 ROLLS ============== */
+.primary-rolls {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.scene {
+    width: 15vw;
+    height: 15vw;
+    margin: 1vw;
+    perspective:600px;
+}
+
+  
+.cube {
+    width:15vw;
+    height: 15vw;
+    /* margin:0 auto; */
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-7.5vw);
+    transition: transform 1s;
+}
+  
+.cube.show-1  { transform: translateZ(-7.5vw) rotateY(   0deg); }
+.cube.show-2  { transform: translateZ(-7.5vw) rotateY(-180deg); }
+.cube.show-3  { transform: translateZ(-7.5vw) rotateY( -90deg); }
+.cube.show-4   { transform: translateZ(-7.5vw) rotateY(  90deg); }
+.cube.show-5   { transform: translateZ(-7.5vw) rotateX( -90deg); }
+.cube.show-6 { transform: translateZ(-7.5vw) rotateX(  90deg); }
+  
+.cube__face {
+    position: absolute;
+    width: 15vw;
+    height: 15vw;
+    border: 1px solid white;
+    line-height: 15vw;
+    font-size: 4vw;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+  
+.cube__face--1  { background: black;  opacity: 0.75;}
+.cube__face--3  { background: black;   opacity: 0.75; }
+.cube__face--2  {  background: black;   opacity: 0.75; }
+.cube__face--4  {  background: black;   opacity: 0.75; }
+.cube__face--5   {  background: black;   opacity: 0.75; }
+.cube__face--6 {  background: black;  opacity: 0.75; }
+
+.cube__face--1  { transform: rotateY(  0deg) translateZ(7.5vw); }
+.cube__face--2   { transform: rotateY(180deg) translateZ(7.5vw); }
+.cube__face--3  { transform: rotateY( 90deg) translateZ(7.5vw); }
+.cube__face--4   { transform: rotateY(-90deg) translateZ(7.5vw); }
+.cube__face--5   { transform: rotateX( 90deg) translateZ(7.5vw); }
+.cube__face--6 { transform: rotateX(-90deg) translateZ(7.5vw); }
+
+label { margin-right: 10px; }
+
+.cntr {
+    display: flex;
+    justify-content: center;
+}
+
+#results, #scores {
+    display: flex;
+    justify-content: space-around;
+}
+
+#scores * {
+    text-align: center;
+    padding: 2px;
+    margin: 5px auto;
+    border: 1px solid black;
+}
+
+.equipment * {
+    padding: 5px;
+    margin: 5px auto;
+    border: 1px solid black;
+}
+
+.atr {display:flex}

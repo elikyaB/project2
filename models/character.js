@@ -16,9 +16,8 @@ const characterSchema = new Schema({
     username: String,
     name: String,
     img: String,
-    stats: {str: Number, end: Number, dex: Number, int: Number},
-    substats: Array,
-    equipment: Array
+    stats: {str: Number, con: Number, dex: Number, int: Number, cha: Number},
+    equipment: {head: String, torso: String, rArm: String, lArm: String, legs: String, misc: String}
 })
 
 // Make  Model
