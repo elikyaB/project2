@@ -53,11 +53,8 @@ app.use(session({
 
 // Index
 app.get('/', (req, res) => {
-    res.render('index.liquid', {logCheck: req.session.loggedIn? req.session.loggedIn : false})
-    // Game introduction page? Press start to go to party screen
-    // check if logged in
-    // if (req.session.loggedIn){res.redirect("/party")} 
-    // else {res.redirect('/user')}
+    res.render('title.liquid', {logCheck: req.session.loggedIn? req.session.loggedIn : false})
+    // Game introduction page? Press play to go to party screen
 })
 
 // Main Party Screen

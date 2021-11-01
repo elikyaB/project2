@@ -1,3 +1,43 @@
+* {
+    outline: 1px solid violet;
+}
+
 .hide {
     display: none;
 }
+
+/* ============== CAROUSEL ============== */
+.carousel-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.carousel-button {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.carousel-button:hover {
+    cursor: pointer;
+}
+
+i.material-icons {
+    font-size: 2rem;
+}
+
+.carousel-character {
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+}
+
+.carousel-image {
+    width: 80vw;
+    height: 80vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;    
+}
+
+/* ===== */

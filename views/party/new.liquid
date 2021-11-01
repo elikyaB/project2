@@ -1,0 +1,37 @@
+{% layout "layout.liquid" %}
+{% block content %}
+
+
+<form action="/party" method="post">
+
+    <label>
+        Name <input type="text" name="name" placeholder="enter character name"/>
+    </label>
+    <label>
+        Appearance <input type="url" name="img" class='hide' id="appearance"/>
+    </label>
+    <div class="carousel-container row">
+        <div class="carousel-button previous col s1">
+            <i class="material-icons">chevron_left</i>
+        </div>
+        <div class="carousel-character col s10">
+            {% assign initial = true %}
+            {% for pic in imgs %}
+                {% if initial %}
+                    <div class="carousel-image" style="background-image: url({{pic.src}});"></div>
+                    {% assign initial = false %}
+                {% else %}
+                    <div class="carousel-image hide" style="background-image: url({{pic.src}});"></div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="carousel-button next col s1">
+            <i class="material-icons">chevron_right</i>
+        </div>
+    </div>
+    <label>
+        Appearance <input type="url" name="img" class='hide' id="appearance"/>
+    </label>
+</form>
+
+{% endblock %}

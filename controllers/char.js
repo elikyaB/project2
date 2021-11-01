@@ -3,6 +3,7 @@
 ///////////////////////////////////
 const express = require("express") 
 const Character = require("../models/character.js")
+const Image = require('../models/image.js')
 
 ///////////////////////////////////
 // INITIALIZE ROUTER
@@ -32,7 +33,7 @@ router.use((req, res, next) => {
 router.get('/', (req, res) => {
     Character.find() // {username: req.session.username}
     .then((party) => {
-        res.render('char/index.liquid', {party})
+        res.render('party/index.liquid', {party})
     })
     .catch((error) => {
         res.json({error})
@@ -41,7 +42,9 @@ router.get('/', (req, res) => {
 
 /// NEW
 router.get('/new', (req, res) => {
-    res.render('char/new.liquid')
+    Image.find().then((imgs) => {
+        res.render('party/new.liquid', {imgs})
+    })
 })
 
 /// CREATE
@@ -63,7 +66,7 @@ router.get('/:id/edit', (req, res) => {
     const id = req.params.id
     Character.findById(id)
     .then((char) => {
-        res.render('char/edit.liquid', {char})
+        res.render('party/edit.liquid', {char})
     })
     .catch((error) => {
         res.json({error})
@@ -99,7 +102,7 @@ router.get('/:id', (req, res) => {
     const id = req.params.id
     Character.findById(id)
     .then((char) => {
-        res.render('char/show.liquid', {char})
+        res.render('party/show.liquid', {char})
     })
     .catch((error) => {
         res.json({error})
